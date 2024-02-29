@@ -1,0 +1,215 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Verdana, Geneva, Tahoma, sans-serif; 
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(#f3f5fc,  #eef2fe);
+    flex-direction: column;
+} 
+
+.main{
+    width: 70%;
+    height: 80vh;
+    /* border: 1px solid black; */
+}
+
+.main img{
+    position: absolute;
+    top: 40px;
+    left: 40px;
+}
+
+.main-contenedor{
+    display: flex;
+    justify-content: space-between;
+}
+
+/* ------- Textarea para escribir el texto --------- */
+
+.texto-para-encriptar{
+    /* border: 1px solid red; */
+    width: 50%;
+    height: 80vh;
+    margin-left: 70px;
+}
+
+.texto-encriptar{
+    width: 100%;
+    height: 450px;
+    resize: none;
+    display: block;
+    margin-top: 100px;
+    margin-bottom: 60px;
+    border: none;
+    /* border: 1px solid blue; */
+    font-size: 26px;
+    background-color: transparent;
+}
+
+.texto-encriptar::placeholder{
+    color:#621d61;
+    font-size: 30px;
+}
+
+.texto-encriptar:focus, .texto-resultado:focus{
+    outline: none;
+}
+
+i{
+    margin-right:10px;
+    color:#495057;
+}
+
+button{
+    background-color: #752273;
+    color: white;
+    font-size: 18px;
+    border: none;
+    width: 280px;
+    height: 50px;
+    border-radius: 15px;
+    margin-top: 20px;
+    transition: 1s all;
+    cursor: pointer;
+}
+
+button:hover{
+    background-color: #521152;
+    transform: scale(1.1);
+}
+
+.btn-desencriptar{
+    margin-left: 20px;
+}
+
+.btn-desencriptar:disabled{
+    background-color: #7127707d;
+    transform: none;
+    cursor: auto;
+}
+
+
+/* ------- Textarea texto encriptado -------- */
+
+.texto-encriptado{
+    width: 30%;
+    /* border: 1px solid red; */
+    margin-right: 70px;
+    border-radius: 25px;
+    background-color: white;
+    box-shadow: 10px 10px 40px #712770;
+    position: relative;
+}
+
+.texto-resultado{
+    width: 85%;
+    height: 80%;
+    display: block;
+    margin: 20px auto;
+    margin-bottom: 45px;
+    resize: none;
+    border: none;
+    background-color: transparent;
+    font-size: 24px;
+    caret-color: transparent;
+    color: black;
+}
+
+.texto{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 50px;
+    color: #343a40;
+    text-align: center;
+    padding: 20px;
+}
+
+.texto img{
+    max-width: 80%;
+}
+
+.texto h2{
+    margin-top: 340px;
+    margin-bottom: 20px;
+}
+
+.btn-copiar{
+    background-color: transparent;
+    border: 1px solid #752273;
+    color: #521152;
+    display: block;
+    margin: 0 auto;
+    display: none;
+}
+
+.btn-copiar:hover{
+    background-color: transparent;
+}
+
+
+/* ------- Footer ------- */
+footer p{
+    font-size: 12px;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 70px;
+}
+
+
+
+/* ------------- medias queries------------ */
+@media only screen and (max-width: 1440px) {
+
+    body{
+        display: flex;
+        justify-content: end;
+    }
+
+    .texto-encriptar{
+        height: 50%;
+    }
+
+    .texto{
+        height: 80%;
+        top: 0;
+    }
+
+    .texto img{
+        width: 80%;
+    }
+
+    .texto h2{
+        margin-top: 250px;
+    }
+
+    button{
+        font-size: 16px;
+        width: 200px;
+        height: 40px;
+    }
+
+    .btn-copiar{
+        position: relative;
+        top: -18px;
+    }
+
+    footer p{
+        margin-bottom: 10px;
+    }
+
+
+
+
+
+
+}

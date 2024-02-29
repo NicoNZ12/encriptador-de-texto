@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://kit.fontawesome.com/4e0f4a3ed7.js" crossorigin="anonymous"></script>
+  <title>Encriptador De Texto</title>
+</head>
+
+<body>
+  <main class="main">
+    <img src="assets/logo.png" alt="logo alura">
+    <div class="main-contenedor">
+      <section class="texto-para-encriptar">
+        <textarea class="texto-encriptar" id="texto-encriptar" placeholder="Ingrese el texto aquí"></textarea>
+
+        <p><i class="fa-solid fa-circle-exclamation"></i>Solo letras minúsculas y sin acentos</p>
+        <button class="btn-encriptar" id="btn-encriptar" onclick="btnEncriptar()">Encriptar</button>
+        <button class="btn-desencriptar" id="btn-desencriptar" onclick="btnDesencriptar()" disabled>
+          Desencriptar
+        </button>
+      </section>
+
+      <section class="texto-encriptado">
+        <textarea class="texto-resultado" id="texto-encriptado" disabled></textarea>
+        <div class="texto">
+          <img src="assets/Imagen1.png" alt="persona con lupa">
+          <h2>Ningun mensaje fue encontrado</h2>
+          <p>Ingrese el texto que desees encriptar o desencriptar</p>
+        </div>
+        <button class="btn-copiar" id="btn-copiar" onclick="copiar()">Copiar</button>
+      </section>
+    </div>
+  </main>
+  <footer>
+    <p>&copy; 2024 - Nicolás Núñez</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
