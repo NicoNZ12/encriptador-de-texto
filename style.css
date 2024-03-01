@@ -19,7 +19,6 @@ body {
 .main{
     width: 70%;
     height: 80vh;
-    /* border: 1px solid black; */
 }
 
 .main img{
@@ -36,7 +35,6 @@ body {
 /* ------- Textarea para escribir el texto --------- */
 
 .texto-para-encriptar{
-    /* border: 1px solid red; */
     width: 50%;
     height: 80vh;
     margin-left: 70px;
@@ -50,7 +48,6 @@ body {
     margin-top: 100px;
     margin-bottom: 60px;
     border: none;
-    /* border: 1px solid blue; */
     font-size: 26px;
     background-color: transparent;
 }
@@ -102,7 +99,6 @@ button:hover{
 
 .texto-encriptado{
     width: 30%;
-    /* border: 1px solid red; */
     margin-right: 70px;
     border-radius: 25px;
     background-color: white;
@@ -168,6 +164,80 @@ footer p{
 
 
 /* ------------- medias queries------------ */
+@media only screen and (max-width: 480px) {
+
+    body{
+        display: block !important;
+    }
+
+    .main{
+        width: 100%;
+        height: 1300px;
+    }
+
+    .main > img{
+        position: absolute;
+        top: 20px;
+        left: 0;
+    }
+
+    .main-contenedor{
+        display: block;
+    }
+
+    .texto-para-encriptar{
+        width: 95%;
+        margin: 0 auto;
+    }
+
+    .texto-para-encriptar p{
+        text-align: center;
+    }
+
+    .texto-encriptar{
+        /* background-color: yellow; */
+        height: 70% !important;
+        padding: 20px 0 0 10px;
+        margin-bottom: 10px;
+    }
+
+    button{
+        display: block;
+        font-size: 20px !important;
+        width: 350px !important;
+        height: 60px !important;
+        margin: 12px auto;
+    }
+
+    .texto-encriptado{
+        width: 95%;
+        height: 600px;
+        margin: 50px auto;
+    }
+
+    .texto-resultado{
+        padding-top: 25px;
+    }
+
+    .texto h2{
+        font-size: 40px;
+        margin: 20px 0px !important;
+        padding: 5px;
+    }
+
+    .texto p{
+        font-size: 20px;
+    }
+
+    .texto-encriptado img{
+        display: none;
+    }
+
+    footer{
+        padding: 20px;
+    }
+}
+
 @media only screen and (max-width: 1440px) {
 
     body{
@@ -206,10 +276,4 @@ footer p{
     footer p{
         margin-bottom: 10px;
     }
-
-
-
-
-
-
 }
