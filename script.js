@@ -29,9 +29,7 @@ function verificarMsj(mensaje) {
 
     if (contieneMayusculas || contieneAcentos) {
         msjAdvertencia.classList.add("advertencia");
-        msjParaEncriptar.value = "";
-        msjEncriptado.innerHTML = "";
-        contenedorImagen.style.display = "block";
+        limpiarValores();
         
     } else {
         msjAdvertencia.classList.remove("advertencia");
@@ -60,19 +58,25 @@ function mostrarMsj(mensaje){
     }
 }
 
+//funcion que muestra el boton copiar cuando se encripta un mensaje
 function mostrarBtnCopiar(mensaje){
     if(mensaje !== ""){
         copiarMsj.style.display = "block";
     }
 }
 
+//funcion que copia el mensaje encriptado en el portapapeles
 function copiar() {
     let textoEncriptado = document.getElementById("texto-encriptado").value;
     navigator.clipboard.writeText(textoEncriptado)
     alert("Mensaje copiado!")
+    limpiarValores();
+}
+
+//funcion que vuelve los valores al estado original
+function limpiarValores(){
     copiarMsj.style.display = "none";
     msjEncriptado.innerHTML = "";
     contenedorImagen.style.display = "block";
     msjParaEncriptar.value = "";
 }
-
