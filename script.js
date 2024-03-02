@@ -1,8 +1,12 @@
-let encriptarObject = document.getElementById("texto-encriptar");
-let encriptadoObject = document.getElementById("texto-encriptado");
+let msjParaEncriptar = document.getElementById("texto-encriptar");
+let msjEncriptado = document.getElementById("texto-encriptado");
 let contenedorImagen = document.querySelector(".texto");
-let copiarMsj = document.querySelector(".btn-copiar");
+let msjAdvertencia = document.getElementById("advertencia");
+let copiarMsj = document.getElementById("btn-copiar");
 
+
+
+//Array con los cambios de caracteres
 let letrasCambio = [
     ['e', "enter"],
     ['i', "imes"],
@@ -11,49 +15,53 @@ let letrasCambio = [
     ['u', "ufat"]
 ]
 
-
+//funcionalidad del boton encriptar
 function btnEncriptar(){
-    let textoEncriptar = encriptar(encriptarObject.value);
-    limpiarArea(textoEncriptar);
-    encriptarObject.value="";
-    mostrarBtnCopiar(textoEncriptar);
+    let textoEncriptar = msjParaEncriptar.value;
+    let mensajeEncriptado = encriptar(textoEncriptar);
+    verificarMsj(mensajeEncriptado);
 }
 
-function btnDesencriptar(){
-    let textoDesencriptado = desencriptar(encriptadoObject.value);
-    encriptadoObject.innerHTML = textoDesencriptado;
-    encriptarObject.value="";
+//funcion para verificar que no haya mayusculas ni acentos
+function verificarMsj(mensaje) {
+    let contieneMayusculas = /[A-Z]/.test(mensaje);
+    let contieneAcentos = /[áéíóúÁÉÍÓÚ]/.test(mensaje)
+
+    if (contieneMayusculas || contieneAcentos) {
+        msjAdvertencia.classList.add("advertencia");
+        msjParaEncriptar.value = "";
+        msjEncriptado.innerHTML = "";
+        contenedorImagen.style.display = "block";
+        
+    } else {
+        msjAdvertencia.classList.remove("advertencia");
+        mostrarMsj(mensaje);
+        
+    }
+    return mensaje;
 }
 
-
-function desencriptar(textoEncriptar){
-    for (let i = 0; i < letrasCambio.length; i++) {
-        if(textoEncriptar.includes(letrasCambio[i][1])){
-            textoEncriptar = textoEncriptar.replaceAll(letrasCambio[i][1], letrasCambio[i][0]);
+//funcion para encriptar el mensaje
+function encriptar(mensaje){
+    for(let i = 0; i < letrasCambio.length; i++){
+        if(mensaje.includes(letrasCambio[i][0])){
+            mensaje = mensaje.replaceAll(letrasCambio[i][0], letrasCambio[i][1])
         }
     }
-    return textoEncriptar;
+    return mensaje;
 }
 
-
-function encriptar(textoEncriptar){
-    for (let i = 0; i < letrasCambio.length; i++) {
-        if(textoEncriptar.includes(letrasCambio[i][0])){
-            textoEncriptar = textoEncriptar.replaceAll(letrasCambio[i][0], letrasCambio[i][1]);
-        }
-    }
-    return textoEncriptar;
-}
-
-function limpiarArea(textoEncriptar){
-    if(textoEncriptar !== ""){
+//funcion para mostrar el mensaje encriptado
+function mostrarMsj(mensaje){
+    if(mensaje !== ""){
         contenedorImagen.style.display = "none";
-        encriptadoObject.innerHTML= textoEncriptar;
+        msjEncriptado.innerHTML= mensaje;
+        mostrarBtnCopiar(mensaje);
     }
 }
 
-function mostrarBtnCopiar(textoEncriptar){
-    if(textoEncriptar !== ""){
+function mostrarBtnCopiar(mensaje){
+    if(mensaje !== ""){
         copiarMsj.style.display = "block";
     }
 }
@@ -62,4 +70,9 @@ function copiar() {
     let textoEncriptado = document.getElementById("texto-encriptado").value;
     navigator.clipboard.writeText(textoEncriptado)
     alert("Mensaje copiado!")
+    copiarMsj.style.display = "none";
+    msjEncriptado.innerHTML = "";
+    contenedorImagen.style.display = "block";
+    msjParaEncriptar.value = "";
 }
+
