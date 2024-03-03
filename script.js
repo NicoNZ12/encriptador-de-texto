@@ -17,16 +17,24 @@ let letrasCambio = [
 
 //funcionalidad del boton encriptar
 function btnEncriptar(){
-    let textoEncriptar = msjParaEncriptar.value;
-    let mensajeEncriptado = encriptar(textoEncriptar);
-    verificarMsj(mensajeEncriptado);
+    if(msjParaEncriptar.value === ""){
+        alert("Campo vacío");
+    }else{
+        let textoEncriptar = msjParaEncriptar.value;
+        let mensajeEncriptado = encriptar(textoEncriptar);
+        verificarMsj(mensajeEncriptado);
+    }
 }
 
 //funcionalidad del boton desencriptar
 function btnDesencriptar(){
-    let textoEncriptado = msjParaEncriptar.value;
-    let  mensajeDesencriptado = desencriptar(textoEncriptado);
-    verificarMsj(mensajeDesencriptado);
+    if(msjParaEncriptar.value === ""){
+        alert("Campo vacío!")
+    }else{
+        let textoEncriptado = msjParaEncriptar.value;
+        let  mensajeDesencriptado = desencriptar(textoEncriptado);
+        verificarMsj(mensajeDesencriptado);
+    }
 }
 
 //funcion para verificar que no haya mayusculas ni acentos
