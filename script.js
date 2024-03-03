@@ -22,6 +22,13 @@ function btnEncriptar(){
     verificarMsj(mensajeEncriptado);
 }
 
+//funcionalidad del boton desencriptar
+function btnDesencriptar(){
+    let textoEncriptado = msjParaEncriptar.value;
+    let  mensajeDesencriptado = desencriptar(textoEncriptado);
+    verificarMsj(mensajeDesencriptado);
+}
+
 //funcion para verificar que no haya mayusculas ni acentos
 function verificarMsj(mensaje) {
     let contieneMayusculas = /[A-Z]/.test(mensaje);
@@ -44,6 +51,16 @@ function encriptar(mensaje){
     for(let i = 0; i < letrasCambio.length; i++){
         if(mensaje.includes(letrasCambio[i][0])){
             mensaje = mensaje.replaceAll(letrasCambio[i][0], letrasCambio[i][1])
+        }
+    }
+    return mensaje;
+}
+
+//funcion para desencriptar el mensaje
+function desencriptar(mensaje){
+    for(let i = 0; i < letrasCambio.length; i++){
+        if(mensaje.includes(letrasCambio[i][1])){
+            mensaje = mensaje.replaceAll(letrasCambio[i][1], letrasCambio[i][0])
         }
     }
     return mensaje;
